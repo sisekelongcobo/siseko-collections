@@ -45,6 +45,24 @@ const Footer = () => {
           >
             Customer Support
           </Link>
+          {" | "}
+          <Link
+            component={RouterLink}
+            to="/contact"
+            color="inherit"
+            underline="none"
+          >
+            Contact Us
+          </Link>
+          {" | "}
+          <Link
+            component={RouterLink}
+            to="/AboutUs"
+            color="inherit"
+            underline="none"
+          >
+            About Us
+          </Link>
         </Box>
       </Container>
     </Box>

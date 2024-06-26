@@ -6,12 +6,41 @@ const Header = () => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Siseko Collections
-        </Typography>
+        <Box sx={{ flexGrow: 1 }}>
+          <Link
+            component={RouterLink}
+            to="/"
+            variant="h6"
+            underline="none"
+            color="inherit"
+          >
+            Siseko Collections
+          </Link>
+        </Box>
         <Box sx={{ display: "flex", gap: 2 }}>
-          <Link component={RouterLink} to="/" color="inherit" underline="none">
-            Home
+          <Link
+            component={RouterLink}
+            to="/login"
+            color="inherit"
+            underline="none"
+          >
+            Login
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/register"
+            color="inherit"
+            underline="none"
+          >
+            Register
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/Orders"
+            color="inherit"
+            underline="none"
+          >
+            Orders
           </Link>
           <Link
             component={RouterLink}
@@ -20,30 +49,6 @@ const Header = () => {
             underline="none"
           >
             Account
-          </Link>
-          <Link
-            component={RouterLink}
-            to="/categories"
-            color="inherit"
-            underline="none"
-          >
-            Categories
-          </Link>
-          <Link
-            component={RouterLink}
-            to="/AboutUs"
-            color="inherit"
-            underline="none"
-          >
-            About Us
-          </Link>
-          <Link
-            component={RouterLink}
-            to="/contact"
-            color="inherit"
-            underline="none"
-          >
-            Contact
           </Link>
           <Link
             component={RouterLink}
