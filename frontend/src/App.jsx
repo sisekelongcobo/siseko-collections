@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Layout from "./components/Layout";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   const [data, setData] = useState([]);
@@ -12,14 +17,14 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Movies</h1>
-      <ul>
-        {data.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
