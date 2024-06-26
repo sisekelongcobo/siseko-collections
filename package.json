@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "run-frontend": "cd frontend && npm run dev",
+    "run-backend": "cd backend && npm run dev",
+    "install-all": "cd frontend && npm install && cd ../backend && npm install"
   },
   "dependencies": {
     "react": "^18.3.1",
