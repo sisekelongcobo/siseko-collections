@@ -59,3 +59,13 @@ To run the backtend, use the following command:
 ```bash
 pnpm run-backtend
 ```
+
+### Unhiding Files
+
+Some files are hidden by default. To unhide them, navigate to the .vscode folder and uncomment the file you need
+
+## Built With
+
+- Frontend: [React]
+- Backend: [Node.js]
+- Database: [mySQL]
