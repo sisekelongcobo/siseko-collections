@@ -14,15 +14,6 @@ import useAutoLogout from "./components/useAutoLogout";
 import Header from "./components/Header";
 
 function App() {
-  // const [data, setData] = useState([]);
-  // const url = "http://localhost:3000";
-
-  // useEffect(() => {
-  //   fetch(`${url}/getMovies`)
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.log(error));
-  // }, []);
   useAutoLogout();
   return (
     <AuthProvider>
