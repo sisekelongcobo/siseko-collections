@@ -1,29 +1,10 @@
 import express from "express";
-import mysql2 from "mysql2";
+import { database } from "../database.js";
 import bcrypt from "bcrypt";
-
-let databaseConfig = {
-  host: "127.0.0.1",
-  user: "root",
-  password: "Umaqondana@12",
-  database: "siseko_db",
-};
-
-const database = mysql2.createConnection(databaseConfig);
-
-database.connect((error) => {
-  if (error) {
-    console.log(`Error connecting to the database ${error}`);
-    return;
-  } else {
-    console.log("Connected to the database");
-  }
-});
 
 const router = express.Router();
 
-router.get("/login", (req, res) => {
-  //get all users where email = email then compare the password with the hashed password if they match then should login the user
+router.post("/login", (req, res) => {
   const { email, password } = req.body;
   const query = "SELECT * FROM users WHERE email = ?";
   database.query(query, [email], (error, results) => {

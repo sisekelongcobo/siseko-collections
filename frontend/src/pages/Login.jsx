@@ -70,15 +70,29 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted:", formData);
       try {
-        const response = await axios.get("http://localhost:3000/login", {
-          email: formData.email,
-          password: formData.password,
+        const response = await fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
         });
-        console.log("Form submitted:", response.data);
+
+        if (!response.ok) {
+          alert("Error logging in user");
+          // Handle error message here (e.g., show error to user)
+        } else {
+          const responseData = await response.json();
+          console.log("Form submitted:", responseData);
+          // Handle successful login, such as setting authentication state or redirecting
+        }
       } catch (error) {
-        console.log(error);
+        console.error("Error logging in user:", error);
+        // Handle other errors (e.g., network issues, request setup errors)
       }
     }
   };

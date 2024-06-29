@@ -12,8 +12,9 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -83,19 +84,32 @@ const Register = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await axios.post(
-          "http://localhost:3000/register",
-          formData
-        );
-        console.log("Form submitted:", response.data);
-        // Handle successful registration (e.g., redirect to login page)
+        const response = await fetch("http://localhost:3000/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          // If response status is not in the range 200-299
+          const errorMessage = await response.json(); // Parse response body as JSON
+          console.error("Error registering user:", errorMessage);
+          // Handle error message here (e.g., show error to user)
+        } else {
+          console.log("Form submitted successfully");
+          navigate("/login");
+        }
       } catch (error) {
-        console.error("Error registering user:", error.response.data);
-        // Handle error (e.g., show error message)
+        console.error("Error registering user:", error);
+        // Handle other errors (e.g., network issues, request setup errors)
       }
     }
   };

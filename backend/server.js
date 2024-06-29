@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import mysql2 from "mysql2";
 import registerRouter from "./routes/register.js"; // Note the import path
 import loginRouter from "./routes/Login.js"; // Note the import path
 import MoviesRouter from "./routes/test.js"; // Note the import path

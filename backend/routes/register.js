@@ -1,24 +1,6 @@
 import express from "express";
-import mysql2 from "mysql2";
+import { database } from "../database.js";
 import bcrypt from "bcrypt";
-
-let databaseConfig = {
-  host: "127.0.0.1",
-  user: "root",
-  password: "Umaqondana@12",
-  database: "siseko_db",
-};
-
-const database = mysql2.createConnection(databaseConfig);
-
-database.connect((error) => {
-  if (error) {
-    console.log(`Error connecting to the database ${error}`);
-    return;
-  } else {
-    console.log("Connected to the database");
-  }
-});
 
 const router = express.Router();
 
