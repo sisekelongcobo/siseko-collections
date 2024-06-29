@@ -12,7 +12,8 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Link as RouterLink } from "react-router-dom"; // Assuming you use React Router
+import { Link as RouterLink } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -82,10 +83,20 @@ const Register = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted:", formData);
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/register",
+          formData
+        );
+        console.log("Form submitted:", response.data);
+        // Handle successful registration (e.g., redirect to login page)
+      } catch (error) {
+        console.error("Error registering user:", error.response.data);
+        // Handle error (e.g., show error message)
+      }
     }
   };
 

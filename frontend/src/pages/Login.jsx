@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Link as RouterLink } from "react-router-dom"; // Assuming you use React Router
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -66,10 +67,19 @@ const Login = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
       console.log("Form submitted:", formData);
+      try {
+        const response = await axios.get("http://localhost:3000/login", {
+          email: formData.email,
+          password: formData.password,
+        });
+        console.log("Form submitted:", response.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
