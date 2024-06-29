@@ -66,6 +66,6 @@ Some files are hidden by default. To unhide them, navigate to the .vscode folder
 
 ## Built With
 
-- Frontend: [React]
-- Backend: [Node.js]
-- Database: [mySQL]
+- Frontend: [React](https://react.dev/)
+- Backend: [Node.js](https://nodejs.org/)
+- Database: [mySQL](https://www.mysql.com/)
