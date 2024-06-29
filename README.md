@@ -51,3 +51,11 @@ To run the frontend, use the following command:
 ```bash
 pnpm run-frontend
 ```
+
+#### Backtend
+
+To run the backtend, use the following command:
+
+```bash
+pnpm run-backtend
+```
