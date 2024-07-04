@@ -27,7 +27,7 @@ jobs:
         run: npm install
         working-directory: ./frontend
       - name: Build the app
-        run: npm run build
+        run: vite build
         working-directory: ./frontend
       - name: Build And Deploy
         id: builddeploy
