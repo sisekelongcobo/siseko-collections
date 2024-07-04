@@ -6,7 +6,8 @@
   "scripts": {
     "run-frontend": "cd frontend && npm run dev",
     "run-backend": "cd backend && npm run dev",
-    "install-all": "cd frontend && npm install && cd ../backend && npm install"
+    "install-all": "cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && vite build"
   },
   "dependencies": {
     "react": "^18.3.1",
