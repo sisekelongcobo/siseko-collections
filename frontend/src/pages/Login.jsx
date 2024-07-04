@@ -10,8 +10,7 @@ import {
   Link,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Link as RouterLink } from "react-router-dom"; // Assuming you use React Router
-import axios from "axios";
+import { Link as RouterLink, useNavigate } from "react-router-dom"; // Assuming you use React Router
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -67,6 +66,8 @@ const Login = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
@@ -82,16 +83,18 @@ const Login = () => {
           }),
         });
 
+        const errorMessage = await response.json();
+
         if (!response.ok) {
-          alert("Error logging in user");
+          alert(errorMessage.message);
           // Handle error message here (e.g., show error to user)
         } else {
-          const responseData = await response.json();
-          console.log("Form submitted:", responseData);
+          alert(errorMessage.message);
+          navigate("/");
           // Handle successful login, such as setting authentication state or redirecting
         }
       } catch (error) {
-        console.error("Error logging in user:", error);
+        console.error("Error logging in user:", error, errorMessage.message);
         // Handle other errors (e.g., network issues, request setup errors)
       }
     }

@@ -14,9 +14,8 @@ import {
 import { makeStyles } from "@mui/styles";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles((theme) => ({
   formContainer: {
     marginTop: theme.spacing(10),
     marginBottom: theme.spacing(4),
@@ -98,14 +97,17 @@ const Register = () => {
           body: JSON.stringify(formData),
         });
 
+        const errorMessage = await response.json(); // Parse response body as JSON
+
         if (!response.ok) {
           // If response status is not in the range 200-299
-          const errorMessage = await response.json(); // Parse response body as JSON
-          console.error("Error registering user:", errorMessage);
+
+          // console.error("Error registering user:", errorMessage);
           // Handle error message here (e.g., show error to user)
+          alert(errorMessage.message);
         } else {
-          console.log("Form submitted successfully");
           navigate("/login");
+          alert(errorMessage.message);
         }
       } catch (error) {
         console.error("Error registering user:", error);

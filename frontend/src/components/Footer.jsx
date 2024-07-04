@@ -16,7 +16,7 @@ const Footer = () => {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-          &copy; 2024 Siseko Collections. All rights reserved.
+          &copy; 2024 Siseko Ngcobo. All rights reserved.
         </Typography>
         <Box sx={{ mt: 2 }}>
           <Link

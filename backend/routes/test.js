@@ -1,4 +1,3 @@
-import mysql2 from "mysql2";
 import express from "express";
 import { database } from "../database.js";
 

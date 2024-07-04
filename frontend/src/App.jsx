@@ -12,27 +12,23 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./components/AuthContext";
 import useAutoLogout from "./components/useAutoLogout";
 import Header from "./components/Header";
+import Orders from "./pages/Orders";
 
 function App() {
   useAutoLogout();
   return (
-    <AuthProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <Layout>
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </Layout>
-        </Router>
-      </ThemeProvider>
-    </AuthProvider>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Orders" element={<Orders />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
